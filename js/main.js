@@ -18,7 +18,7 @@ jQuery(document).ready(function($){
 			$('.cd-primary-nav').addClass('nav-is-visible');
 			$('.cd-main-header').addClass('nav-is-visible');
 			$('.cd-main-content').addClass('nav-is-visible').one('webkitTransitionEnd otransitionend oTransitionEnd msTransitionEnd transitionend', function(){
-				$('body').addClass('overflow-hidden');
+			$('body').addClass('overflow-hidden');
 			});
 			// toggleSearch('close');
 			$('.cd-overlay').addClass('is-visible');
@@ -65,9 +65,11 @@ jQuery(document).ready(function($){
 			selected.addClass('selected').next('ul').removeClass('is-hidden').end().parent('.has-children').parent('ul').addClass('moves-out');
 			selected.parent('.has-children').siblings('.has-children').children('ul').addClass('is-hidden').end().children('a').removeClass('selected');
 			$('.cd-overlay').addClass('is-visible');
+			$('.cd-main-header').addClass('nav-open');
 		} else {
 			selected.removeClass('selected').next('ul').addClass('is-hidden').end().parent('.has-children').parent('ul').removeClass('moves-out');
 			$('.cd-overlay').removeClass('is-visible');
+			$('.cd-main-header').removeClass('nav-open');
 		}
 		// toggleSearch('close');
 	});
@@ -89,21 +91,18 @@ jQuery(document).ready(function($){
 		});
 	}
 
-	// function toggleSearch(type) {
-	// 	if(type=="close") {
-	// 		//close serach 
-	// 		$('.cd-search').removeClass('is-visible');
-	// 		$('.cd-search-trigger').removeClass('search-is-visible');
-	// 		$('.cd-overlay').removeClass('search-is-visible');
-	// 	} else {
-	// 		//toggle search visibility
-	// 		$('.cd-search').toggleClass('is-visible');
-	// 		$('.cd-search-trigger').toggleClass('search-is-visible');
-	// 		$('.cd-overlay').toggleClass('search-is-visible');
-	// 		if($(window).width() > MqL && $('.cd-search').hasClass('is-visible')) $('.cd-search').find('input[type="search"]').focus();
-	// 		($('.cd-search').hasClass('is-visible')) ? $('.cd-overlay').addClass('is-visible') : $('.cd-overlay').removeClass('is-visible') ;
-	// 	}
-	// }
+	// Dynamic Breadcrumbs
+		$('.cd-nav a').on('click', function() {
+		  var $this = $(this),
+		      $bc = $('<div class="item"></div>');
+
+		  $this.parents('li').each(function(n, li) {
+		      var $a = $(li).children('a').clone();
+		      $bc.prepend(' / ', $a);
+		  });
+		    $('#breadcrumb').html( $bc.prepend('<a href="#home">Home</a>') );
+
+		}) ;
 
 	function checkWindowWidth() {
 		//check window width (scrollbar included)

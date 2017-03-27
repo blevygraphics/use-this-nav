@@ -18,20 +18,17 @@
 			<li><a class="cd-nav-trigger" href="#cd-primary-nav">Menu<span></span></a></li>
 		</ul> <!-- cd-header-buttons -->
 	</header>
-
-	<main class="cd-main-content">
-		<!-- your content here -->
-	</main>
-
-	<div class="cd-overlay"></div>
-
 	<nav class="cd-nav">
 		<ul id="cd-primary-nav" class="cd-primary-nav is-fixed">
+		
 			<li class="has-children">
 				<a href="#">Menu</a>
-
 				<ul class="cd-secondary-nav is-hidden">
-					<li class="go-back"><a href="#0">Menu</a></li>
+
+					<div id="breadcrumb">
+					    <div class="item"><a href="#home">Home / </a></div>
+					</div>
+					<!-- <li class="go-back"><a href="#0">Menu</a></li> -->
 					<li class="see-all"><a href="#">All Clothing</a></li>
 					<li class="has-children">
 						<a href="#">Accessories</a>
@@ -82,8 +79,14 @@
 			</li>
 		</ul> <!-- primary-nav -->
 	</nav> <!-- cd-nav -->
+	<main class="cd-main-content">
+		<!-- your content here -->
+	</main>
+
+	<div class="cd-overlay"></div>
+
 <script src="js/jquery-2.1.1.js"></script>
-<script src="js/jquery.mobile.custom.min.js"></script>
+<!-- <script src="js/jquery.mobile.custom.min.js"></script> -->
 <script src="js/main.js"></script> <!-- Resource jQuery -->
 </body>
 </html>
